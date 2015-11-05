@@ -17,8 +17,11 @@
 
 		<ul class="list-unstyled row">
 			<li ng-repeat="album in albums" class="col-sm-4 album">
-				<spotify-poster album="album" size="m" title="{{ album.name }}"></spotify-poster>
-				<button ng-disabled="isBookmarked(album)" ng-click="saveBookmark(album)" class="btn btn-default btn-xs">save</button>
+				<spotify-poster album="album" size="m" title="{{ album.name }}">
+					<bookmark-add item="album"></bookmark-add>
+					<bookmark-remove item="album"></bookmark-remove>
+				</spotify-poster>
+				
 			</li>
 		</ul>
 	</div>	

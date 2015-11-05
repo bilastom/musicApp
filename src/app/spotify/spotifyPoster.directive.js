@@ -3,6 +3,7 @@ angular.module('spotify')
         return {
             restrict: 'E',
             templateUrl: 'app/spotify/spotifyPoster.directive.html',
+            transclude: true,
             scope: {
                 album: '=',
                 size: '@',

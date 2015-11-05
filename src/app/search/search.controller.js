@@ -16,6 +16,10 @@ angular.module('musicApp')
             bookmarks.add(album);
         };
 
+        $scope.removeBookmark = function(id) {
+            bookmarks.remove(id);
+        };
+
         $scope.getAllBookmarks = function() {
             return bookmarks.getAll();
         };

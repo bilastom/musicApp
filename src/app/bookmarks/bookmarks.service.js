@@ -5,12 +5,20 @@ angular.module('bookmarks')
 
         return {
             add: add,
+            remove: remove,
             getAll: getAll,
             has: has
         };
 
         function add(item) {
             items.push(item);
+            sync();
+        }
+
+        function remove(id) {
+            items = items.filter(function(value) {
+                return value.id !== id;
+            });
             sync();
         }
 
