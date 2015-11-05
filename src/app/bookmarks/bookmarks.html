@@ -1,0 +1,10 @@
+<div ng-controller="BookmarksController">
+	<ul class="list-unstyled row">
+	    <li class="col-md-6 bookmark" ng-repeat="bookmark in getAllBookmarks()">
+	        <spotify-poster album="bookmark" size='s'></spotify-poster>
+	        {{ bookmark.name }}
+	        <bookmark-remove item="bookmark"></bookmark-remove>
+	    </li>
+	    <p class="text-muted text-center" ng-show="!getAllBookmarks().length">no bookmarks found</p>
+	</ul>
+</div>

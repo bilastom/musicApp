@@ -18,6 +18,16 @@
         url: '/search',
         templateUrl: 'app/search/search.html',
         controller: 'SearchController',
+      })
+      .state('album', {
+        url: '/albums/:albumId',
+        templateUrl: 'app/albums/album.html',
+        controller: 'AlbumController',
+        resolve: {
+          album: function(spotify, $stateParams){
+            return spotify.getAlbum($stateParams.albumId);
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

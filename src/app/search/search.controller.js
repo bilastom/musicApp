@@ -1,5 +1,5 @@
 angular.module('musicApp')
-    .controller('SearchController', function($scope, $http, spotify, bookmarks) {
+    .controller('SearchController', function($scope, $http, spotify) {
 
         $scope.search = function(q) {
             spotify.searchAlbums(q).then(function(albums) {
@@ -7,20 +7,4 @@ angular.module('musicApp')
             });
         };
         $scope.search('batman');
-
-        $scope.isBookmarked = function(album) {
-            return bookmarks.has(album.id);
-        };
-
-        $scope.saveBookmark = function(album) {
-            bookmarks.add(album);
-        };
-
-        $scope.removeBookmark = function(id) {
-            bookmarks.remove(id);
-        };
-
-        $scope.getAllBookmarks = function() {
-            return bookmarks.getAll();
-        };
     });

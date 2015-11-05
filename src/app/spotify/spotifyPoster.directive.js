@@ -17,7 +17,13 @@ angular.module('spotify')
                 };
                 var size = sizesDict[scope.size] || 0;
 
-                scope.imgSrc = scope.album.images[size].url;
+                scope.$watch('album', function() {
+                    if (scope.album) {
+                        scope.imgSrc = scope.album.images[size].url;
+                    }
+                });
+
+
 
             }
         };

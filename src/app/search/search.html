@@ -1,13 +1,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<h3>Bookmarks</h3>
-		<ul class="list-unstyled row">
-			<li class="col-md-6 bookmark" ng-repeat="bookmark in getAllBookmarks()">
-				<spotify-poster album="bookmark" size='s'></spotify-poster>
-				{{ bookmark.name }}
-			</li>
-			<p class="text-muted text-center" ng-show="!getAllBookmarks().length">no bookmarks found</p>
-		</ul>
+		<ng-include src="'app/bookmarks/bookmarks.html'"></ng-inlude>
 	</div>
 	<div class="col-md-8">
 		<h1>Search</h1>
@@ -18,10 +12,10 @@
 		<ul class="list-unstyled row">
 			<li ng-repeat="album in albums" class="col-sm-4 album">
 				<spotify-poster album="album" size="m" title="{{ album.name }}">
-					<bookmark-add item="album"></bookmark-add>
-					<bookmark-remove item="album"></bookmark-remove>
+
 				</spotify-poster>
-				
+				<bookmark-add item="album"></bookmark-add>
+				<bookmark-remove item="album"></bookmark-remove>
 			</li>
 		</ul>
 	</div>	
