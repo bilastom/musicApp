@@ -8,6 +8,10 @@ angular.module('musicApp')
         };
         $scope.search('batman');
 
+        $scope.isBookmarked = function(album) {
+            return bookmarks.has(album.id);
+        };
+
         $scope.saveBookmark = function(album) {
             bookmarks.add(album);
         };

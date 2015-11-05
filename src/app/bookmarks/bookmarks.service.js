@@ -4,7 +4,8 @@ angular.module('bookmarks')
 
         return {
             add: add,
-            getAll: getAll
+            getAll: getAll,
+            has: has
         };
 
         function add(item) {
@@ -13,6 +14,12 @@ angular.module('bookmarks')
 
         function getAll() {
             return items.slice();
+        }
+
+        function has(id) {
+            return items.some(function(item) {
+                return item.id === id;
+            });
         }
 
     });
