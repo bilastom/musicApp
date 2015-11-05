@@ -1,6 +1,7 @@
 angular.module('bookmarks')
-    .factory('bookmarks', function() {
-        var items = [];
+    .factory('bookmarks', function($window) {
+
+        var items = angular.fromJson($window.localStorage.bookmarks) || [];
 
         return {
             add: add,
@@ -10,6 +11,7 @@ angular.module('bookmarks')
 
         function add(item) {
             items.push(item);
+            sync();
         }
 
         function getAll() {
@@ -20,6 +22,10 @@ angular.module('bookmarks')
             return items.some(function(item) {
                 return item.id === id;
             });
+        }
+
+        function sync() {
+            $window.localStorage.bookmarks = angular.toJson(items);
         }
 
     });
