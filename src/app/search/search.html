@@ -3,7 +3,7 @@
 		<h3>Bookmarks</h3>
 		<ul class="list-unstyled row">
 			<li class="col-md-6 bookmark" ng-repeat="bookmark in getAllBookmarks()">
-				<img ng-src="{{ bookmark.images[1].url }}" alt="" class="img-responsive">
+				<spotify-poster album="bookmark" size='s'></spotify-poster>
 				{{ bookmark.name }}
 			</li>
 			<p class="text-muted text-center" ng-show="!getAllBookmarks().length">no bookmarks found</p>
@@ -17,9 +17,7 @@
 
 		<ul class="list-unstyled row">
 			<li ng-repeat="album in albums" class="col-sm-4 album">
-				<img ng-src="{{ album.images[1].url }}" alt="" class="img-responsive">
-				<spotify-poster></spotify-poster>
-				{{ album.name }}
+				<spotify-poster album="album" size="m" title="{{ album.name }}"></spotify-poster>
 				<button ng-disabled="isBookmarked(album)" ng-click="saveBookmark(album)" class="btn btn-default btn-xs">save</button>
 			</li>
 		</ul>
