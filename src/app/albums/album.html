@@ -8,8 +8,9 @@
 	</div>
 	<div class="col-sm-6">
 		<h1 class="h3">{{ album.name }}</h1>
+		<input type="search" class="form-control" ng-model="query">
 		<ul>
-			<li ng-repeat="track in album.tracks.items">{{ track.name }}</li>
+			<li ng-repeat="track in album.tracks.items | filter:query">{{ track.name }}</li>
 		</ul>
 	</div>
 </div>

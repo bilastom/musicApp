@@ -19,6 +19,10 @@
         templateUrl: 'app/search/search.html',
         controller: 'SearchController',
       })
+      .state('contact', {
+        url: '/contact',
+        templateUrl: 'app/contact/contact.html',
+      })
       .state('album', {
         url: '/albums/:albumId',
         templateUrl: 'app/albums/album.html',

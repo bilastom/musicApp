@@ -12,7 +12,8 @@
             'ui.bootstrap',
             'toastr',
             'spotify',
-            'bookmarks'
+            'bookmarks',
+            'common',
         ]);
 
 })();
