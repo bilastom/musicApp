@@ -1,10 +1,10 @@
 angular.module('musicApp')
-    .controller('SearchController', function($scope, $http, spotify) {
-
-        $scope.search = function(q) {
+    .controller('SearchController', function(spotify) {
+        var vm = this;
+        vm.search = function(q) {
             spotify.searchAlbums(q).then(function(albums) {
-                $scope.albums = albums;
+                vm.albums = albums;
             });
         };
-        $scope.search('batman');
+        vm.search('batman');
     });

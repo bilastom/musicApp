@@ -18,6 +18,7 @@
         url: '/search',
         templateUrl: 'app/search/search.html',
         controller: 'SearchController',
+        controllerAs: 'main',
       })
       .state('contact', {
         url: '/contact',
@@ -27,6 +28,7 @@
         url: '/albums/:albumId',
         templateUrl: 'app/albums/album.html',
         controller: 'AlbumController',
+        controllerAs: 'main',
         resolve: {
           album: function(spotify, $stateParams){
             return spotify.getAlbum($stateParams.albumId);

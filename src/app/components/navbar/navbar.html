@@ -8,10 +8,14 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#/">Home</a></li>
+        <!-- <li class="active"><a ng-href="#/">Home</a></li>
         <li><a ng-href="#">About</a></li>
         <li><a ui-sref="search">Search</a></li>
-        <li><a ui-sref="contact">Contact</a></li>
+        <li><a ui-sref="contact">Contact</a></li> -->
+        <li ui-sref-active="active" ng-repeat="item in ::vm.menu">
+          <a ui-sref="{{ ::item.state }}">{{ ::item.label }}</a>
+        </li>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right acme-navbar-text">

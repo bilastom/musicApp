@@ -1,4 +1,5 @@
 angular.module('musicApp')
-.controller('AlbumController', function($scope, album){
-	$scope.album = album;
+.controller('AlbumController', function(album){
+	var vm = this;
+	vm.album = album;
 });

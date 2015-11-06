@@ -6,19 +6,19 @@
 	<div class="col-md-8">
 		<h1>Search</h1>
 		<form>
-			<input type="search" class="form-control" ng-model="query"/>
+			<input type="search" class="form-control" ng-model="query" ng-change="main.search(query)" ng-model-options="{debounce: 300}"/>
 			<select ng-model="sortAttr" name="" id="">
 				<option value="name">Name</option>
 				<option value="id">Id</option>
 			</select>
 			<input type="checkbox" name="desc" ng-model="desc"/>
-			<button ng-click="search(query)" class="btn btn-primary">find</button>
+			<button ng-click="main.search(query)" class="btn btn-primary">find</button>
 		</form>	
 
-		<pagination ng-model="page" ng-init="page=1" items-per-page="6" total-items="albums.length"></pagination>
+		<pagination ng-model="page" ng-init="page=1" items-per-page="6" total-items="main.albums.length"></pagination>
 
 		<ul class="list-unstyled row">
-			<li ng-repeat="album in albums | paginate:page:6 | orderBy:sortAttr:desc" class="col-sm-4 album">
+			<li ng-repeat="album in main.albums | paginate:page:6 | orderBy:sortAttr:desc" class="col-sm-4 album">
 				<spotify-poster album="album" size="m" title="{{ album.name }}">
 
 				</spotify-poster>

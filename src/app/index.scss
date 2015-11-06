@@ -28,7 +28,26 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .album {
-	
+  transition: all 0.5s;	
+}
+
+.album.ng-enter-stagger {
+  transition-delay: 0.05s;
+  transition-duration: 0s;
+}
+
+.album.ng-enter{
+  opacity: 0;
+  transform: scale(0) translateY(-50px) rotate(-90deg);
+}
+
+.album.ng-enter-active{
+  opacity: 1;
+  transform: scale(1) translateY(0px) rotate(0deg);
+}
+
+.album.ng-leave {
+  transition: all 0s; 
 }
 
 .album:nth-child(3n + 1){
@@ -37,6 +56,18 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 .bookmark:nth-child(2n + 1){
   clear: left;
+}
+
+.bookmark.ng-leave {
+  transform: scale(1) translateY(0px) rotate(0deg);  
+}
+
+.bookmark.ng-leave-active {
+  transform: scale(0) translateY(100px) rotate(-1040deg);
+}
+
+.bookmark {
+  transition: all 0.5s;
 }
 
 /**
